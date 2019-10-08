@@ -12,10 +12,6 @@ const renderBike = bike => {
     img.alt = `${bike.name} image`;
     li.appendChild(img);
 
-    const details = document.createElement('details');
-    details.textContent = bike.description;
-    li.appendChild(details);
-
     const div = document.createElement('div');
     div.className = 'price-and-add';
     li.appendChild(div);
@@ -30,6 +26,10 @@ const renderBike = bike => {
     button.textContent = 'Add to cart';
     button.value = bike.id;
     div.appendChild(button);
+
+    const details = document.createElement('details');
+    details.textContent = bike.description;
+    div.appendChild(details);
 
     return li;
 };

@@ -16,7 +16,7 @@ test('renders a bike', function(assert) {
         price: 4703.49
     };
 
-    const expected = '<li class="enduro" title="Alloy full-suspension mountain bike. Glide over the largest boulders. 27.5 inch wheels"><h3>Nukeproof Mega</h3><img src="./assets/nukeproof.jpg" alt="Nukeproof Mega image"><details>Alloy full-suspension mountain bike. Glide over the largest boulders. 27.5 inch wheels</details><div class="price-and-add"><div class="price">$4703.49</div><button value="nukeproof">Add to cart</button></div></li>';
+    const expected = '<li class="enduro" title="Alloy full-suspension mountain bike. Glide over the largest boulders. 27.5 inch wheels"><h3>Nukeproof Mega</h3><img src="./assets/nukeproof.jpg" alt="Nukeproof Mega image"><div class="price-and-add"><div class="price">$4703.49</div><button value="nukeproof">Add to cart</button><details>Alloy full-suspension mountain bike. Glide over the largest boulders. 27.5 inch wheels</details></div></li>';
 
   // <p class="price">$1.00<button value="apple">Add</button></p></li>;
     //Act 
