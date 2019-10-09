@@ -11,5 +11,5 @@ const cartData = [{
     id: 'trek',
     quantity: 4
 }];
-
+ 
 export default cartData;

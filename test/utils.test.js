@@ -1,8 +1,8 @@
-import findById, { calcLineItem } from '../common/utils.js';
+import findById, { calcLineItem, calcOrderTotal } from '../common/utils.js';
 // import cartData from '../data/cart.js';
 import bikes from '../data/bikes.js';
 import { renderTableRow } from '../shopping-cart/render-table-row.js';
-import { makePrettyCurrency } from '../common/utils.js';
+// import { makePrettyCurrency } from '../common/utils.js';
 
 const test = QUnit.test;
 
@@ -17,7 +17,7 @@ test('find bike by ID', function(assert){
         description: 'IsoSpeed decoupler that isolates the seat tube from the rest of the frameset for a more comfortable riding position',
         category: 'road',
         price: 6930.00
-    }
+    };
 
     //Act 
     const foundId = findById(bikes, bikeId);
@@ -61,4 +61,28 @@ test('should render a line item in for order table', function(assert) {
     const html = bikeElementTableRow.outerHTML;
   //Assert
     assert.equal(html, expected);
+});
+
+test('should calculate total cost of all line items', function(assert) {
+  //Arrange
+    const cartArr = [{
+        id: 'nukeproof',
+        quantity: 2
+    }, {
+        id: 'yeti',
+        quantity: 5
+    }, {
+        id: 'colnago',
+        quantity: 1
+    }, {
+        id: 'trek',
+        quantity: 4
+    }];
+
+    const expected = 70321.93;
+
+  //Act 
+    const orderTotal = calcOrderTotal(cartArr, bikes);
+  //Assert
+    assert.equal(orderTotal, expected);
 });

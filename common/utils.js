@@ -25,3 +25,13 @@ function roundCurrency(amount) {
 export const calcLineItem = (quantity, price) => {
     return roundCurrency(quantity * price);
 };
+
+export const calcOrderTotal = (cartArr, bikeObjArr) => {
+    let orderTotal = 0;
+    for (let i = 0; i < cartArr.length; i++){
+        let bike = findById(bikeObjArr, cartArr[i].id);
+        let lineTotal = calcLineItem(cartArr[i].quantity, bike.price);
+        orderTotal += lineTotal;
+    }
+    return orderTotal;
+};
