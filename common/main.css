@@ -5,3 +5,34 @@ body {
     text-align: center;
     margin: 0;
 }
+
+header {
+    display: flex;
+    margin: 0 0 10px 0;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid white;
+    padding: 10px 20px 10px 0;
+    background: linear-gradient(#0c130f, #2c1e0a);
+    position: fixed;
+    width: 100%;
+}
+
+a {
+    border: 1px solid white;
+    scroll-margin-top: 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    margin: 5px 15px 5px 0;
+    background: #0c130f;
+}
+
+h1 {
+    margin: 0 30px;
+}
+
+main {
+    padding-top: 60px;
+}
