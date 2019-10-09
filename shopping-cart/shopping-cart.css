@@ -1,0 +1,28 @@
+main {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+}
+
+table {
+    margin-top: 100px;
+    table-layout: fixed;
+    width: 80%;
+    /* border-collapse: collapse; */
+    border: 2px solid black;
+    box-shadow: 0 0 30px black;
+    border-radius: 20px;
+}
+
+thead {
+    color: rgb(255, 240, 235);
+    background-color: rgb(8, 20, 12);
+}
+
+td {
+    padding: 10px;
+}
+
+th {
+    padding: 20px;
+}
