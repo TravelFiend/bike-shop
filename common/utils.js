@@ -1,3 +1,11 @@
+export const makePrettyCurrency = (number) => {
+    const dolla = number.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+    return dolla;
+};
+
 const findById = (bikeList, bikesId) => {
     for (var i = 0; i < bikeList.length; i++){
         const bike = bikeList[i];
