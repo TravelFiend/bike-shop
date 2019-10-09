@@ -10,11 +10,6 @@ const makeTd = (content) => {
 export const renderTableRow = (bike, order) => {
     const tableRow = document.createElement('tr');
 
-    // const columnOne = makeTd('nukeproof');
-    // const columnTwo = makeTd('3');
-    // const columnThree = makeTd('$4703.49');
-    // const columnFour = makeTd('$14110.47');
-
     const columnOne = makeTd(bike.name);
     const columnTwo = makeTd(order.quantity);
 
