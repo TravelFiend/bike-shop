@@ -1,9 +1,10 @@
 import bikes from '../data/bikes.js';
 import cartData from '../data/cart.js';
 import { renderTableRow } from './render-table-row.js';
-import findById from '../common/utils.js';
+import findById, { calcOrderTotal, makePrettyCurrency } from '../common/utils.js';
 
 const tableBody = document.querySelector('tbody');
+const orderTotalCell = document.getElementById('order-total-cell');
 
 for (let i = 0; i < cartData.length; i++){
     const lineItem = cartData[i];
@@ -12,3 +13,7 @@ for (let i = 0; i < cartData.length; i++){
 
     tableBody.appendChild(domChange);
 }
+
+let orderTotal = calcOrderTotal(cartData, bikes);
+let prettyOrderTotal = makePrettyCurrency(orderTotal);
+orderTotalCell.textContent = prettyOrderTotal;
