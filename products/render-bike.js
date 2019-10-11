@@ -42,25 +42,25 @@ const renderBike = bike => {
     h3.textContent = bike.name;
     li.appendChild(h3);
 
-    const img = document.createElement('img');
-    img.src = bike.image;
-    img.alt = `${bike.name} image`;
-    li.appendChild(img);
+    const productImg = document.createElement('img');
+    productImg.src = bike.image;
+    productImg.alt = `${bike.name} image`;
+    li.appendChild(productImg);
 
-    const div = document.createElement('div');
-    div.className = 'price-and-add';
-    li.appendChild(div);
+    const purchaseInfo = document.createElement('div');
+    purchaseInfo.className = 'price-and-add';
+    li.appendChild(purchaseInfo);
 
-    const childDiv = document.createElement('div');
-    childDiv.className = 'price';
+    const priceDiv = document.createElement('div');
+    priceDiv.className = 'price';
     const priced = `$${bike.price.toFixed(2)}`;
-    childDiv.textContent = priced;
-    div.appendChild(childDiv);
+    priceDiv.textContent = priced;
+    purchaseInfo.appendChild(priceDiv);
 
-    const myButton = document.createElement('button');
-    myButton.textContent = 'Add to cart';
-    myButton.value = bike.id;
-    myButton.addEventListener('click', () => {
+    const addToCartButton = document.createElement('button');
+    addToCartButton.textContent = 'Add to cart';
+    addToCartButton.value = bike.id;
+    addToCartButton.addEventListener('click', () => {
         let localStorageCart = getCart();
         if (!localStorageCart){
             makeCart();
@@ -73,16 +73,13 @@ const renderBike = bike => {
         
         setCart(localStorageCart);
     });
-    div.appendChild(myButton);
+    purchaseInfo.appendChild(addToCartButton);
 
-    const details = document.createElement('details');
-    details.textContent = bike.description;
-    div.appendChild(details);
+    const productDescription = document.createElement('details');
+    productDescription.textContent = bike.description;
+    purchaseInfo.appendChild(productDescription);
 
     return li;
 };
-
-
-
 
 export default renderBike;
