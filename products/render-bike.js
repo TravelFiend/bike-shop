@@ -1,4 +1,4 @@
-import findById from '../common/utils.js';
+// import findById from '../common/utils.js';
 let emptyCart = [];
 export const CART_KEY = 'cart';
 
@@ -16,8 +16,8 @@ export const addToCart = (theCart, id) => {
         const newItem = {
             id: id,
             quantity: 1,
-        }
-        emptyCart.push(newItem);
+        };
+        theCart.push(newItem);
     }
 };
 
@@ -65,15 +65,15 @@ const renderBike = bike => {
         if (!localStorageCart){
             makeCart();
             localStorageCart = getCart();
-            console.log(`made a cart ${localStorageCart}`);
-            
+            console.log(`I made a cart`);
         }
-        let selectedBike = findById(localStorageCart, bike.id);
-        console.log(localStorageCart);
         
+        // console.log('bike id', bike.id);
         addToCart(localStorageCart, bike.id);
-
+        // console.log('localstoargecart', localStorageCart);
+        
         setCart(localStorageCart);
+        console.log(localStorageCart);
     });
     div.appendChild(myButton);
 
@@ -83,5 +83,8 @@ const renderBike = bike => {
 
     return li;
 };
+
+
+
 
 export default renderBike;
