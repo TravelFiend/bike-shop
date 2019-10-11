@@ -26,7 +26,7 @@ const makeCart = () => {
     localStorage.setItem(CART_KEY, jsonCart);
 };
 
-const getCart = () => JSON.parse(localStorage.getItem(CART_KEY));
+export const getCart = () => JSON.parse(localStorage.getItem(CART_KEY));
 
 const setCart = (localStorageCart) => {
     const jsonNew = JSON.stringify(localStorageCart);
