@@ -36,3 +36,7 @@ h1 {
 main {
     padding-top: 60px;
 }
+button {
+    outline: none;
+    box-shadow: inset -5px -5px 5px #707070;
+}

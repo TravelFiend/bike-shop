@@ -65,7 +65,6 @@ const renderBike = bike => {
         if (!localStorageCart){
             makeCart();
             localStorageCart = getCart();
-            console.log(`I made a cart`);
         }
         
         // console.log('bike id', bike.id);
@@ -73,7 +72,6 @@ const renderBike = bike => {
         // console.log('localstoargecart', localStorageCart);
         
         setCart(localStorageCart);
-        console.log(localStorageCart);
     });
     div.appendChild(myButton);
 
