@@ -1,3 +1,38 @@
+// import findById from '../common/utils.js';
+let emptyCart = [];
+export const CART_KEY = 'cart';
+
+export const addToCart = (theCart, id) => {
+    let present = false;
+    theCart.forEach(item => {
+        if (item.id === id){
+            item.quantity++;
+            present = true;
+        }
+    });
+    if (present){
+        return;
+    } else {
+        const newItem = {
+            id: id,
+            quantity: 1,
+        };
+        theCart.push(newItem);
+    }
+};
+
+const makeCart = () => {
+    let jsonCart = JSON.stringify(emptyCart);
+    localStorage.setItem(CART_KEY, jsonCart);
+};
+
+export const getCart = () => JSON.parse(localStorage.getItem(CART_KEY));
+
+const setCart = (localStorageCart) => {
+    const jsonNew = JSON.stringify(localStorageCart);
+    localStorage.setItem(CART_KEY, jsonNew);
+};
+
 const renderBike = bike => {
     const li = document.createElement('li');
     li.className = bike.category;
@@ -22,10 +57,23 @@ const renderBike = bike => {
     childDiv.textContent = priced;
     div.appendChild(childDiv);
 
-    const button = document.createElement('button');
-    button.textContent = 'Add to cart';
-    button.value = bike.id;
-    div.appendChild(button);
+    const myButton = document.createElement('button');
+    myButton.textContent = 'Add to cart';
+    myButton.value = bike.id;
+    myButton.addEventListener('click', () => {
+        let localStorageCart = getCart();
+        if (!localStorageCart){
+            makeCart();
+            localStorageCart = getCart();
+        }
+        
+        // console.log('bike id', bike.id);
+        addToCart(localStorageCart, bike.id);
+        // console.log('localstoargecart', localStorageCart);
+        
+        setCart(localStorageCart);
+    });
+    div.appendChild(myButton);
 
     const details = document.createElement('details');
     details.textContent = bike.description;
@@ -33,5 +81,8 @@ const renderBike = bike => {
 
     return li;
 };
+
+
+
 
 export default renderBike;
