@@ -23,13 +23,20 @@ orderTotalCell.textContent = prettyOrderTotal;
 
 const submitButtonAction = () => {
     if (getCart() === null){
-        orderButton.setAttribute('disabled', 'disabled');
+        orderButton.disabled = true;
+    } else {
+        orderButton.addEventListener('click', () => {
+            let cartObj = getCart(CART_KEY);
+            let messageString = `You have ordered: `;
+            cartObj.forEach(cartItem => {
+                messageString += `\n${cartItem.id}: ${cartItem.quantity}`;
+            });
+            alert(messageString);
+            orderButton.setAttribute('disabled', 'disabled');
+            localStorage.removeItem(CART_KEY);
+            window.location.href = '../';
+        });
     }
-    orderButton.addEventListener('click', () => {
-        orderButton.setAttribute('disabled', 'disabled');
-        localStorage.removeItem(CART_KEY);
-        window.location.href = '../';
-    });
 };
-
+console.log(getCart());
 submitButtonAction();
