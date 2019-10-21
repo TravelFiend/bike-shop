@@ -8,22 +8,22 @@ const makeTd = (content) => {
 };
 
 export const renderTableRow = (bike, order) => {
-    const tableRow = document.createElement('tr');
+    const productRow = document.createElement('tr');
 
-    const columnOne = makeTd(bike.name);
-    const columnTwo = makeTd(order.quantity);
+    const productNameColumn = makeTd(bike.name);
+    const quantityColumn = makeTd(order.quantity);
 
     const prettyPrice = makePrettyCurrency(bike.price);
-    const columnThree = makeTd(prettyPrice);
+    const individualProductPrice = makeTd(prettyPrice);
 
     const totalTotal = bike.price * order.quantity;
     const prettyTotal = makePrettyCurrency(totalTotal);
-    const columnFour = makeTd(prettyTotal);
+    const productSubtotal = makeTd(prettyTotal);
 
-    tableRow.appendChild(columnOne);
-    tableRow.appendChild(columnTwo);
-    tableRow.appendChild(columnThree);
-    tableRow.appendChild(columnFour);
+    productRow.appendChild(productNameColumn);
+    productRow.appendChild(quantityColumn);
+    productRow.appendChild(individualProductPrice);
+    productRow.appendChild(productSubtotal);
 
-    return tableRow;
+    return productRow;
 };

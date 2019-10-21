@@ -4,7 +4,7 @@ import { renderTableRow } from './render-table-row.js';
 import findById, { calcOrderTotal, makePrettyCurrency } from '../common/utils.js';
 import { getCart } from '../products/render-bike.js';
 
-const tableBody = document.querySelector('tbody');
+const shoppingCartBody = document.querySelector('tbody');
 const orderTotalCell = document.getElementById('order-total-cell');
 const orderButton = document.getElementById('order-button');
 
@@ -14,7 +14,7 @@ localCart.forEach(lineItem => {
     const theBike = findById(bikes, lineItem.id);
     const domChange = renderTableRow(theBike, lineItem);
 
-    tableBody.appendChild(domChange);
+    shoppingCartBody.appendChild(domChange);
 });
 
 let orderTotal = calcOrderTotal(localCart, bikes);
@@ -38,5 +38,5 @@ const submitButtonAction = () => {
         });
     }
 };
-console.log(getCart());
+
 submitButtonAction();
